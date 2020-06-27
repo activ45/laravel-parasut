@@ -11,7 +11,7 @@ class Client
     public $config;
     public $access_token;
     public $company_id;
-    public $file = storage_path('token.ini');
+    public $file = 'token.ini';
 
     public function __construct($config)
     {
