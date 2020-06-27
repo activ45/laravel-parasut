@@ -1,11 +1,11 @@
 {
-    "name": "netinternet/parasut-v4",
-    "description": "Parsaut V4 Api client",
+    "name": "activ45/laravel-parasut",
+    "description": "Parsaut V4 Api client with Laravel",
     "type": "library",
     "license": "MIT",
     "authors": [{
-        "name": "Barış Esen",
-        "email": "barisesennn@gmail.com"
+        "name": "Batuhan OK",
+        "email": "activ45@hotmail.com"
     }],
     "autoload": {
         "psr-4": {
@@ -14,9 +14,12 @@
         "files": []
     },
     "require": {
-        "php": ">=5.5.9",
+        "php": "^7.2",
+        "illuminate/console": "^5.8.33 || ^6.0 || ^7.0",
+        "illuminate/http": "^5.8.33 || ^6.0 || ^7.0",
+        "illuminate/support": "^5.8.33 || ^6.0 || ^7.0",
         "ext-curl": "*"
     },
-    "version": "1.0.14",
+    "version": "1.0.0",
     "minimum-stability": "dev"
 }

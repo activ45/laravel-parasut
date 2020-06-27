@@ -11,7 +11,7 @@ class Client
     public $config;
     public $access_token;
     public $company_id;
-    public $file = 'token.ini';
+    public $file = storage_path('token.ini');
 
     public function __construct($config)
     {
@@ -108,7 +108,7 @@ class Client
         $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
         $response = json_decode($jsonData, true);
         curl_close($ch);
-        
+
         switch ($httpCode) {
             case '400':
                 $msg = strlen($jsonData) < 3 ? $msg = 'Bad Request' : $jsonData;

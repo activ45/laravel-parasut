@@ -4,6 +4,15 @@ namespace Parasut;
 class Product extends Base
 {
 
+    public function list($params = [])
+    {
+        return $this->client->request(
+            'products/',
+            $params,
+            'GET'
+        );
+    }
+
     public function create($data)
     {
         return $this->client->request(
