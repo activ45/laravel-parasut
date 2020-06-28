@@ -13,8 +13,18 @@ class Client
     public $company_id;
     public $file = 'token.ini';
 
-    public function __construct($config)
+    public function __construct($config = null)
     {
+        if($config === null){
+            $config = [
+                'client_id'     => env('PARASUT_CLIENT_ID'),
+                'username'      => env('PARASUT_USERNAME'),
+                'password'      => env('PARASUT_PASSWORD'),
+                "grant_type" => "password",
+                "redirect_uri" => "urn:ietf:wg:oauth:2.0:oob",
+                'company_id'    => env('PARASUT_COMPANY_ID'),
+            ];
+        }
         $this->config = $config;
         $this->company_id = $this->config['company_id'];
         if (function_exists('storage_path')) {
@@ -91,6 +101,8 @@ class Client
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_HEADER, false);
+//        curl_setopt($ch, CURLOPT_PROXY, '127.0.0.1:8888');
+
         switch ($method) {
             case 'PUT':
                 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'PUT');
